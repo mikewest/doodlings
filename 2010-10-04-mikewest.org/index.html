@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Mike West is a web developer in Munich.</title>
+    <style>
+      html  {
+        background: #DDD;
+      } 
+      body {
+        background: #FFF;
+        background:   #FFF url( ./grid.png ) repeat-y 14px 14px;
+        margin:     0 auto;
+        padding:    7px;
+        width:      774px;
+
+        -webkit-box-shadow: 0 0 5px rgba( 0, 0, 0, 0.75 );
+      }
+
+      .offscreen {
+        position: absolute;
+        left:     -999em;
+      }
+
+      /**
+       *  Homepage Header
+       */
+      header {
+        -webkit-border-radius:  3px;
+        background:   #EEE url( ./grid.png ) repeat-y 7px 7px;
+        background:   #EEE;
+        border-radius:  3px;
+        display:      block;
+        font-family:  Baskerville, Times, 'Times New Roman', serif;
+        margin:       0;
+        overflow:     hidden;
+        padding:      7px;
+      }
+        header h1 {
+          font:     57px/0.8 Baskerville, Times, 'Times New Roman', serif;
+          margin:   0;
+          padding:  0;
+        }
+          header h1 a {
+            color:            #000;
+            text-decoration:  none;
+            text-rendering:   optimizeLegibility;
+          }
+          header h1 img {
+            -webkit-background-clip:  padding-box;
+            -webkit-box-shadow:       0 0 5px rgba( 0, 0, 0, 0.5 );
+            background:               #EEE;
+            float:                    right;
+            margin-left:              14px;
+            border:                   1px solid #DDD;
+          }
+        header p {
+          font-size:        30px;
+          line-height:      1.17;
+          margin:           0;
+          text-align:       justify;
+          text-rendering:   optimizeLegibility;
+        }
+          header p span {
+            display:      inline-block;
+            margin:       13px 0 12px;
+            position:     relative;
+            text-shadow:  #BBB 2px 2px;
+            width:        244px;
+          }
+            header p .amp {
+              display:      inline-block;
+              font:         italic 65px/0 Baskerville, 'Goudy Old Style', Palatino, 'Book Antiqua', serif;
+              margin:       0;
+              text-align:   center;
+              width:        240px;
+            }
+            header p em {
+              -webkit-transform:  rotate(-2deg);
+              display:            inline-block;
+              font-size:          45px;
+              line-height:        0.8;
+              vertical-align:     top;
+            }
+              header p em:last-child {
+                bottom:       -0.2em;
+                display:      inline-block;
+                position:     absolute;
+                text-align:   right;
+                width:        244px;
+              }
+          header p strong {
+            display:          inline-block;
+            font-size:        30px;
+            font-weight:      400;
+            letter-spacing:   1px;
+            line-height:      0.5;
+            text-align:       right;
+            vertical-align:   text-bottom;
+            width:            244px;
+          }
+
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>
+        <img src="me.jpg" width="500" height="281" alt="">
+        <a href="/is">Mike West</a>
+      </h1>
+      <p>
+        is a developer who builds websites that (on their best days)
+        <span>
+          <em>delight</em>
+          <span class="amp">&amp;</span>
+          <em>inform</em>
+        </span>
+        <strong>He does it well.</strong>
+      </p>
+    </header>
+    <nav>
+      <ul>
+        <li>
+          <h2><a href="http://projects.mikewest.org/">Current Projects</a></h2>
+          <ul>
+            <li><a href="http://projects.mikewest.org/static_gettext/"><code>static_gettext</code></a></li>
+          </ul>
+        </li>
+
+  </body>
+</html>
