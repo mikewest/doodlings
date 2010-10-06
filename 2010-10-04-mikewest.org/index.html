@@ -6,6 +6,7 @@
     <style>
       html  {
         background: #DDD;
+        overflow-y: scroll;
       } 
       body {
         background: #FFF;
@@ -37,7 +38,7 @@
         padding:      7px;
       }
         header h1 {
-          font:     57px/0.8 Baskerville, Times, 'Times New Roman', serif;
+          font:     77px/0.8 Baskerville, Times, 'Times New Roman', serif;
           margin:   0;
           padding:  0;
         }
@@ -55,67 +56,92 @@
             border:                   1px solid #DDD;
           }
         header p {
-          font-size:        30px;
+          font-size:        35px;
           line-height:      1.17;
           margin:           0;
           text-align:       justify;
           text-rendering:   optimizeLegibility;
         }
-          header p span {
-            display:      inline-block;
-            margin:       13px 0 12px;
-            position:     relative;
-            text-shadow:  #BBB 2px 2px;
-            width:        244px;
+          header em {
+            text-shadow:  #DDD 2px 2px;
           }
-            header p .amp {
-              display:      inline-block;
-              font:         italic 65px/0 Baskerville, 'Goudy Old Style', Palatino, 'Book Antiqua', serif;
-              margin:       0;
-              text-align:   center;
-              width:        240px;
-            }
-            header p em {
-              -webkit-transform:  rotate(-2deg);
-              display:            inline-block;
-              font-size:          45px;
-              line-height:        0.8;
-              vertical-align:     top;
-            }
-              header p em:last-child {
-                bottom:       -0.2em;
-                display:      inline-block;
-                position:     absolute;
-                text-align:   right;
-                width:        244px;
-              }
+          header .amp {
+            font: italic 0.8em/1 Baskerville, Palatino, 'Book Antiqua', serif;
+          }
+          <!-- header p span { -->
+            <!-- display:      inline-block; -->
+            <!-- margin:       13px 0 12px; -->
+            <!-- position:     relative; -->
+            <!-- text-shadow:  #BBB 2px 1px; -->
+            <!-- width:        244px; -->
+          <!-- } -->
+            <!-- header p span .amp { -->
+              <!-- display:      inline-block; -->
+              <!-- font:         italic 65px/0 Baskerville, 'Goudy Old Style', Palatino, 'Book Antiqua', serif; -->
+              <!-- margin:       0; -->
+              <!-- text-align:   center; -->
+              <!-- width:        240px; -->
+            <!-- } -->
+            <!-- header p span em { -->
+              <!-- -webkit-transform:  rotate(-2deg); -->
+              <!-- display:            inline-block; -->
+              <!-- font-size:          45px; -->
+              <!-- line-height:        0.8; -->
+              <!-- vertical-align:     top; -->
+            <!-- } -->
+              <!-- header p span em:last-child { -->
+                <!-- bottom:       -0.2em; -->
+                <!-- display:      inline-block; -->
+                <!-- position:     absolute; -->
+                <!-- text-align:   right; -->
+                <!-- width:        244px; -->
+              <!-- } -->
           header p strong {
-            display:          inline-block;
-            font-size:        30px;
             font-weight:      400;
             letter-spacing:   1px;
-            line-height:      0.5;
-            text-align:       right;
-            vertical-align:   text-bottom;
-            width:            244px;
           }
-
+      /**
+       *  Navigation
+       */
+        nav {
+          display:  block;
+          overflow: hidden;
+        }
+          nav ul,
+          nav li {
+            padding:    0;
+            margin:     0;
+            list-style: none outside;
+          }
+            nav > ul {
+              margin: 14px 0 0;
+            }
+              nav > ul > li {
+                background:   #EEE;
+                float:        left;
+                padding:      7px;
+                width:        230px;
+                margin-left:  14px;
+              }
+              nav > ul > li:first-child {
+                margin-left:  0;
+                width:        237px;
+              }
+              nav > ul > li:last-child {
+                width:        237px;
+              }
     </style>
   </head>
   <body>
     <header>
       <h1>
-        <img src="me.jpg" width="500" height="281" alt="">
+        <img src="me.jpg" width="414" height="233" alt="">
         <a href="/is">Mike West</a>
       </h1>
       <p>
-        is a developer who builds websites that (on their best days)
-        <span>
-          <em>delight</em>
-          <span class="amp">&amp;</span>
-          <em>inform</em>
-        </span>
-        <strong>He does it well.</strong>
+        builds websites that, on their best days,
+        <em>delight</em> <span class="amp">&amp;</span>
+        <em>inform</em>.  He does it <strong>well</strong>.
       </p>
     </header>
     <nav>
@@ -126,6 +152,19 @@
             <li><a href="http://projects.mikewest.org/static_gettext/"><code>static_gettext</code></a></li>
           </ul>
         </li>
-
+        <li>
+          <h2><a href="http://projects.mikewest.org/">Writings</a></h2>
+          <ul>
+            <li><a href="http://projects.mikewest.org/static_gettext/"><code>static_gettext</code></a></li>
+          </ul>
+        </li>
+        <li>
+          <h2><a href="http://projects.mikewest.org/">Writings</a></h2>
+          <ul>
+            <li><a href="http://projects.mikewest.org/static_gettext/"><code>static_gettext</code></a></li>
+          </ul>
+        </li>
+      </ul>
+    </nav>
   </body>
 </html>
