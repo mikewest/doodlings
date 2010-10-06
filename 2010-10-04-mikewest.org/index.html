@@ -9,10 +9,12 @@
         overflow-y: scroll;
       } 
       body {
+        -webkit-border-radius: 0 0 5px 5px;
         background: #FFF;
-        background:   #FFF url( ./grid.png ) repeat-y 14px 14px;
+        background: #FFF url( ./grid.png ) repeat-y 14px 14px;
         margin:     0 auto;
         padding:    7px;
+        position:   relative;
         width:      774px;
 
         -webkit-box-shadow: 0 0 5px rgba( 0, 0, 0, 0.75 );
@@ -66,7 +68,7 @@
             text-shadow:  #DDD 2px 2px;
           }
           header .amp {
-            font: italic 0.8em/1 Baskerville, Palatino, 'Book Antiqua', serif;
+            font: italic 0.8em/1 'Hoefler Text', Baskerville, Palatino, Constantina, 'Book Antiqua', 'URW Palladio L', serif;
           }
           <!-- header p span { -->
             <!-- display:      inline-block; -->
@@ -114,22 +116,32 @@
             list-style: none outside;
           }
             nav > ul {
-              margin: 14px 0 0;
+              margin: 14px 0 0 7px;
             }
               nav > ul > li {
-                background:   #EEE;
-                float:        left;
-                padding:      7px;
-                width:        230px;
-                margin-left:  14px;
+                float:                  left;
+                width:                  244px;
+                margin-left:            14px;
               }
               nav > ul > li:first-child {
                 margin-left:  0;
-                width:        237px;
               }
-              nav > ul > li:last-child {
-                width:        237px;
-              }
+          nav h2 {
+            margin: 0;
+            font-family:  Baskerville, Times, 'Times New Roman', serif;
+          }
+            nav h2 a {
+                color:              #000;
+                text-decoration:    none;
+                font-weight:        400;
+            }
+      /**
+       *    Footer
+       */
+        footer {
+            position:   absolute;
+            bottom:     -1.2em;
+        }
     </style>
   </head>
   <body>
@@ -150,21 +162,30 @@
           <h2><a href="http://projects.mikewest.org/">Current Projects</a></h2>
           <ul>
             <li><a href="http://projects.mikewest.org/static_gettext/"><code>static_gettext</code></a></li>
+            <li><a href="http://projects.mikewest.org/jslint_utils/"><code>JSLint Utils</code></a></li>
+            <li><a href="http://projects.mikewest.org/jslint/"><code>JSLint&prime;</code></a></li>
           </ul>
         </li>
         <li>
-          <h2><a href="http://projects.mikewest.org/">Writings</a></h2>
+          <h2><a href="/2010/">Writings</a></h2>
           <ul>
             <li><a href="http://projects.mikewest.org/static_gettext/"><code>static_gettext</code></a></li>
           </ul>
         </li>
         <li>
-          <h2><a href="http://projects.mikewest.org/">Writings</a></h2>
+          <h2><a href="">Writings</a></h2>
           <ul>
             <li><a href="http://projects.mikewest.org/static_gettext/"><code>static_gettext</code></a></li>
           </ul>
         </li>
       </ul>
     </nav>
+    <footer>
+        <small class="vcard">
+            &copy;2010 <a href="http://mikewest.org/" class="fn">Mike West</a>
+            (<a href="mailto:mike@mikewest.org" class="email">mike@mikewest.org</a>),
+            <a href="/license/" rel="license">Some rights reserved</a>.
+        </small>
+    </footer>
   </body>
 </html>
