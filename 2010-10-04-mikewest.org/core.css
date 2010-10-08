@@ -1,0 +1,47 @@
+
+      html  {
+        background:   #DDD url( ./background.jpg );
+        overflow-y:   scroll;
+        font-family:  Georgia, Palatino, 'Palatino Linotype', Times, 'Times New Roman', serif;
+      } 
+      body {
+        -webkit-border-radius: 0 0 5px 5px;
+        background:   rgba( 255, 255, 255, 0.4 ) url( ./grid3.png ) repeat-y 12px 12px;
+        border:       1px solid #666;
+        border-width: 0 1px;
+        margin:       0.5em auto 2em;
+        padding:      12px;
+        position:     relative;
+        width:        760px;
+
+        -webkit-box-shadow: 0 0 15px rgba( 0, 0, 0, 0.75 );
+      }
+      abbr {
+        border-bottom:  1px dashed #333;
+      }
+      .offscreen {
+        position: absolute;
+        left:     -999em;
+      }
+      a {
+        border-bottom:      1px solid #000;
+        color:              #000;
+        text-decoration:    none;
+        -webkit-transition: all 0.2s ease-out;
+      }
+        a:hover {
+          border-color:     #4281BA;
+          color:            #4281BA;
+        }
+
+
+/**
+ *  Clearfix.
+ */
+header:after, nav:after, footer:after {
+  content: ".";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+} 

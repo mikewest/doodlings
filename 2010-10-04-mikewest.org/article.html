@@ -1,0 +1,510 @@
+<!doctype html>
+<html lang="en-us">
+  <head>
+    <meta charset="UTF-8">
+    <title>Article.</title>
+    <link rel="stylesheet" href="./core.css" type="text/css">
+    <style>
+      article header {
+        margin:     0 112px;
+        text-align: center;
+      }
+      article header h1 {
+        font:   48px/1.2 Baskerville, Times, 'Times New Roman', serif;
+        margin: 0;
+      }
+        article header time {
+          font:   16px/1 Georgia, Palatino, 'Palatino Linotype', Times, 'Times New Roman', serif;
+          color:  #888;
+        }
+        article header address {
+          background: rgba( 0, 0, 0, 0.9 );
+          margin:     -11px -123px 12px;
+          text-align: left;
+        }
+        article header address a {
+            border:         0;
+            color:          #FFF; 
+            display:        inline-block;
+            font:           normal 100 24px/1 Baskervilla, Times, 'Times New Roman', serif;
+            letter-spacing: 2px;
+            padding:        6px 12px;
+            text-rendering:   optimizeLegibility;
+          }
+
+        article p { 
+          color:            #222;
+          font-size:        16px;
+          line-height:      1.5;
+          margin:           12px 112px 0;
+        }
+        article h2 {
+          border-bottom:  1px solid #BBB;
+          font:           24px/1.2 Baskerville, Times, 'Times New Roman', serif;
+          margin:         0.75em 88px;
+        }
+        article ul,
+        article ol {
+          margin:         0 112px;
+          padding:        0;
+        }
+            article li ul,
+            article li ol {
+              margin:     0 0 0 25px;
+            }
+            article ul p,
+            article ol p {
+              margin:       0.5em 0 0;
+            }
+        pre code {
+          background:   #BEDCE7;
+          border:       1px solid #BEDCE7;
+          font:         14px/1.2 Inconsolata, 'Panic Sans', Monaco, Courier, monospace;
+          display:      block;
+          margin:       1em 112px;
+          max-height:   25em;
+          overflow:     auto;
+          padding:      1em;
+          -webkit-transition: margin 0.5s ease-out, background 0.5s ease-out;
+        }
+          pre code:hover, pre code:focus {
+            background: #EAF2FD;
+            margin:     1em 0;
+          }
+          ul pre code,
+          ol pre code {
+            margin:     1em 0;
+          }
+            ul pre code:hover,
+            ol pre code:hover {
+              margin:   1em -112px;
+            }
+              li ul pre code:hover,
+              li ol pre code:hover {
+                margin:   1em -112px 1em -137px;
+              }
+        article footer {
+          margin:     1em 88px;
+          border-top: 2px solid #BBB;
+        }
+          footer nav {
+            border-top: 1px solid #999;
+            margin-top: 1px;
+            display:  block;
+          }
+            footer nav ul {
+              display:    block;
+              list-style: none inside;
+              margin:     1px 0 1em;
+            }
+              footer nav li {
+                display:  inline-block;
+                width:    292px;
+              }
+                footer nav li:last-child a {
+                  text-align: right;
+                }
+                  footer nav li:first-child a:before,
+                  footer nav li:last-child a:after {
+                    display:    inline-block;
+                    margin:     0 0 0 -24px;
+                    width:      24px;
+                    content:    "«";
+                    text-align: center;
+                  }
+                    footer nav li:last-child a:after {
+                      content:    "»";
+                      margin:     0 -24px 0 0;
+                    }
+                footer nav li a {
+                  border:     0;
+                  padding:    6px 24px;
+                  display:    inline-block;
+                  width:      244px;
+                  background: rgba( 0, 0, 0, 0.25 );
+                }
+                  footer nav li a:hover {
+                    color:      #EAF2FD;
+                    background: rgba( 0, 0, 0, 0.75 );
+                  }
+                footer nav li span {
+                  position: absolute;
+                  left:     -999em;
+                }
+            footer p {
+              float:    left;
+              margin:   12px 24px;
+              width:    312px;
+            }
+            footer h3 {
+              float:      left;
+              width:      200px;
+              font-size:  16px;
+              margin:     12px 0 0;
+            }
+              footer h3 span {
+                display:      block;
+                font-weight:  400;
+                margin-top:   6px;
+              }
+            footer dl {
+              float:      left;
+              margin:     0;
+              width:      200px;
+            }
+              footer dt {
+                display:  block;
+                padding:  0;
+                margin:   6px 0;
+              }
+              footer dd {
+                margin:   0 0 0 30px;
+                padding:  0;  
+              }
+              footer dt.twitter {
+                background: url( twitter.png ) no-repeat top left;
+                padding:  0 0 0 20px;
+              }
+              footer dt.mail {
+                background: url( email.png ) no-repeat top left;
+                padding:  0 0 0 20px;
+              }
+
+            
+    </style>
+  </head>
+  <body>
+    <article>
+      <header>
+        <address class="vcard"><a href="http://mikewest.org/" rel="home" class="fn url">Mike West</a></address>
+        <h1>This is an article's title.</h1>
+        <time pubtime datetime="2010-05-16">Sunday, May 16th, 2010</time>
+      </header>
+<p>Apropos of nothing, a few CSS tips that have nothing to do with browser
+incompatibilities, and everything to do with your own sanity when dealing
+with code you've written:</p> 
+ 
+<h2>Comment your CSS files</h2> 
+ 
+<p>This is incredibly basic advice that I don&rsquo;t think is taken at all seriously
+enough.  I've made an effort over the last few months to begin every CSS file
+I write with a comment block that looks something like:</p> 
+ 
+<pre><code>/**
+ *  Title of the CSS file
+ *
+ *  A Brief description of the CSS file's contents, and, if
+ *  relevant, it's dependencies.  This should generally only
+ *  be a sentence or three long, anything more, and the file's
+ *  almost certainly attempting to do too much.
+ *
+ *  &lt;pre&gt;&lt;code&gt;
+ *      &lt;div class="the markup this css file expects"&gt;
+ *          You'll be ever so happy you included this part
+ *          in about three months, when you come back to this
+ *          project, having completely forgotten it's
+ *          structure and purpose.
+ *      &lt;/div&gt;
+ *  &lt;/code&gt;&lt;/pre&gt;
+ *
+ *  @author     Mike West &lt;mike@mikewest.org&gt;
+ *  @package    some_greppable_name
+ */
+</code></pre> 
+ 
+<p>This is the basis upon which you can start writing reasonable CSS rules that
+you have a good chance of understanding the next time you read them.
+Especially the expected markup.  You may think that&rsquo;s overly verbose, and
+simply overkill for most projects, but without it, you&rsquo;ll get lost when trying
+to map the file&rsquo;s CSS to anything at all on the actual website you&rsquo;re coding.</p> 
+ 
+<p>It&rsquo;s important to put as much context into the CSS file as possible, because
+CSS is a complex language when you use it the way you&rsquo;re supposed to. The more
+you rely on the cascade to reuse code and concepts, the more you&rsquo;ll come to
+rely on good documentation to keep your bearings.</p> 
+ 
+<h2>Write many, highly specialized CSS files</h2> 
+ 
+<p>The general rule of thumb about documenting your code has a corollary: <strong>you
+should use <em>lots</em> of CSS files</strong>.  You should be able to pick up a small,
+focused chunk of code, read through it, and understand more or less how it
+fits into the site as a whole.  If it depends on some other chunk of code,
+that code should be referenced, but not included in the same file.  Here&rsquo;s
+why: long CSS files are opaque, confused, and unstructured.  I don&rsquo;t care how
+disciplined you are: this is true 100% of the time, without fail.</p> 
+ 
+<p>If you find yourself sifting through a CSS file, trying to figure out where
+best to stick a new bit of code, you&rsquo;re simply doing it wrong. The fewer
+CSS files you have, the larger they&rsquo;ll be, and the more tempted you&rsquo;ll be
+to simply stick some new rules on the end to save time.  You&rsquo;ll do this
+because your teammates are doing it, and they&rsquo;ll do it because you&rsquo;re doing
+it. This is the path to poor code quality, poor code reuse, and simple
+insanity.</p> 
+ 
+<p>In short, I see long CSS files as the <a href="http://en.wikipedia.org/wiki/Fixing_Broken_Windows">broken windows</a> of web development.
+The longer and more convoluted the file, the more likely even the best
+developers are to simply make it more confused.</p> 
+ 
+<h2>Name your files well</h2> 
+ 
+<p>To whatever extent possible, you should develop a naming convention to make a
+file&rsquo;s purpose clear, minimizing the chance that you&rsquo;ll have to go looking for
+a good home for new code.</p> 
+ 
+<p>For example, on my current project, I've written a lot of modules that are all
+based upon the same root class.  The markup might look like:</p> 
+ 
+<pre><code>&lt;div class="basebox"&gt;
+    [Module basics go here]
+&lt;/div&gt;
+ 
+&lt;div class="basebox special"&gt;
+    [Module basics, plus "special" markup go here]
+&lt;/div&gt;
+</code></pre> 
+ 
+<p><code>basebox.css</code> defines the presentation of the features common to all
+&ldquo;Basebox&rdquo; style modules.  In that file&rsquo;s documentation block, I'd define a
+<code>@package</code> of &ldquo;projectname_basebox&rdquo;.  The &ldquo;special&rdquo; presentation is then
+defined in <code>basebox_special.css</code>, with a <code>@package</code> of
+&ldquo;projectname_basebox_special&rdquo;.  The filename makes dependencies clear when
+determining import order, and the <code>@package</code> marker makes dependencies clear
+inside the file (and available to <code>grep</code>).</p> 
+ 
+<h2>Style guides are good</h2> 
+ 
+<p>You should organize a style guide for your team, and stick to it.  As with
+any language, it&rsquo;s helpful when your whole team speaks the same dialect.
+Insofar as that&rsquo;s true, I think it&rsquo;s more important that you agree on <em>a</em> set
+of rules defining how you write CSS, rather than <em>my</em> set of rules. The more
+your CSS looks like your neighbors, the more likely she is to understand your
+rules quickly when she needs to change them (and the more likely <em>you</em> are to
+understand rules you wrote months ago&hellip;).</p> 
+ 
+<p>That said, you should of course all write CSS like I do.  Because it&rsquo;s the
+right way.  Here&rsquo;s how and why:</p> 
+ 
+<ul> 
+<li><p>Selectors are to be written in order of specificity, and nested
+according to the site&rsquo;s markup.  Given a <code>basebox</code> module:</p> 
+ 
+<pre><code>&lt;div class="basebox"&gt;
+    &lt;div class="header"&gt;&lt;/div&gt;
+    &lt;div class="body"&gt;&lt;/div&gt;
+    &lt;div class="footer"&gt;&lt;/div&gt;
+&lt;/div&gt;
+</code></pre> 
+ 
+<p>I'd expect to see CSS code that looked something like:</p> 
+ 
+<pre><code>.basebox {
+    /* Properties go here */
+}
+    .basebox .header {
+        /* Properties go here */
+    }
+    .basebox .body {
+        /* Properties go here */
+    }
+    .basebox .footer {
+        /* Properties go here */
+    }
+</code></pre> 
+ 
+<p>I'd argue for this format for the same reasons that indenting a &ldquo;real&rdquo;
+programming language makes sense: it&rsquo;s easier to understand a file&rsquo;s
+scope when selectors are nested (this, incidentally, is another reason
+that multiple CSS files are beneficial: each file&rsquo;s &ldquo;scope&rdquo; begins
+anew at the left-hand column).</p> 
+ 
+<p>This also operates on the principle of least surprise.  I expect to see
+the most general rules first, and to work towards more specific rules at
+the bottom of the file.  I think most developers would agree.</p></li> 
+<li><p>Properties are written <em>one per line</em>.  Period.  I consider this
+self-evident, and I'm always shocked when otherwise intelligent people
+argue with me about it.  Writing properties one per line has two
+distinct advantages:</p> 
+ 
+<ol> 
+<li><p>Selectors with more than two or three properties don&rsquo;t require
+horizontal scrolling.  Nor do they require maintaining a parse
+tree in your head while reading code.</p> 
+ 
+<p>To make this point more clearly, I&rsquo;ll cherry-pick a horrid example
+out of <a href="http://github.com/stubbornella/oocss/blob/master/core/grid/grids.css">Nicole&rsquo;s OOCSS</a> (Hi, <a href="http://www.stubbornella.org/content/">Nicole</a>!  Sorry I'm picking on
+you! :) ):</p> 
+ 
+<pre><code>/* This is unreadable */
+.lastUnit{display:table-cell;float:none;width:auto;*display:block;*zoom:1;_position:relative;_left:-3px;_margin-right:-3px;} 
+ 
+/* This is less so */
+.lastUnit {
+    display:        table-cell;
+    float:          none;
+    width:          auto;
+    *display:       block;
+    *zoom:          1;
+    _position:      relative;
+    _left:          -3px;
+    _margin-right:  3px;
+}
+</code></pre></li> 
+<li><p>Properties written on more than one line make version control
+(which generally operates with line-based <code>diff</code> presentation)
+much more user friendly.  If I ever had to resolve conflicts in
+a file with 100+ character lines, I think I'd simply rewrite the
+rule rather than spend the time to figure things out.</p></li> 
+</ol> 
+ 
+ 
+<p>All that said, I do find single-line rulesets acceptable (and, in fact,
+preferable) when writing long runs of single-rule groups.  Sprite
+definitions are the canonical example.  It simply makes sense to write
+code like:</p> 
+ 
+<pre><code>.sprited li {
+    background: url(/path/to/sprite.png) no-repeat 0 0;
+}
+    .sprited .s1 { background-position: 0 -20px; }
+    .sprited .s2 { background-position: 0 -40px; }
+    .sprited .s3 { background-position: 0 -60px; }
+    .sprited .s4 { background-position: 0 -80px; }
+</code></pre></li> 
+<li><p>Properties are formatted for readability using 4-space tab stops.
+Readability improves when the eye has a clean line to jump to.  Again
+using Nicole&rsquo;s code as an example, would you rather read this:</p> 
+ 
+<pre><code>.lastUnit {
+    display: table-cell;
+    float: none;
+    width: auto;
+    *display: block;
+    *zoom: 1;
+    _position: relative;
+    _left: -3px;
+    _margin-right: 3px;
+}
+</code></pre> 
+ 
+<p>Or this:</p> 
+ 
+<pre><code>.lastUnit {
+    display:        table-cell;
+    float:          none;
+    width:          auto;
+    *display:       block;
+    *zoom:          1;
+    _position:      relative;
+    _left:          -3px;
+    _margin-right:  3px;
+}
+</code></pre> 
+ 
+I don&rsquo;t think it&rsquo;s much of a contest.</li> 
+<li><p>Properties are written in alphabetical order.  This also helps keep
+diffs sane, as you no longer get into fights about which rules should
+be written together.</p></li> 
+<li><p>Browser hacks are inline, and documented.  Taking Nicole&rsquo;s example above,
+I'd expect to see (at least) two comment blocks, explaining the rationale
+behind the various IE hacks:</p> 
+ 
+<pre><code>.lastUnit {
+    display:        table-cell;
+    float:          none;
+    width:          auto;
+ 
+    /**
+     *  @HACK:  Giving `haslayout` to IE 6 and 7 via the
+     *          `zoom` and the star hack.
+     */
+    *display:       block;
+    *zoom:          1;
+ 
+    /**
+     *  @HACK:  Something IE6 specific that I don't understand
+     *          because it wasn't documented.  Maybe it's in a
+     *          wiki somewhere?  Who knows.  Danger!
+     */
+    _position:      relative;
+    _left:          -3px;
+    _margin-right:  3px;
+}
+</code></pre> 
+ 
+This is, of course, more verbose, and will take up some of your valuable
+time.  I don&rsquo;t care.  Write the comments anyway.  You&rsquo;ll need them later
+on when you've forgotten why you wrote them.  Labeling your hacks makes
+you think about and justify them, and makes them simple to remove when
+you decide to stop supporting broken browsers.</li> 
+</ul> 
+ 
+ 
+<h2>Write code for human consumption</h2> 
+ 
+<p>Your code should first and foremost be human-readable.  Of course you want to
+deliver a single <a href="http://developer.yahoo.com/performance/rules.html#num_http">combined</a> and <a href="http://developer.yahoo.com/performance/rules.html#minify">minified</a> CSS file to the browser, and of
+course that means that you&rsquo;ll have to do some work to transform the nicely
+readable code you've written into something lean and mean for performance and
+efficiency (a good place to start would be <a href="http://timhuegdon.com/">Tim Huegdon&rsquo;s</a> article
+&ldquo;<a href="http://nefariousdesigns.co.uk/archive/2010/02/website-builds-using-make/">Website Builds Using Make</a>&rdquo;).<br/> 
+</p> 
+ 
+<p>So don&rsquo;t worry about the performance penalties to writing long comments,
+detailing every tricky piece of your CSS.  And don&rsquo;t worry about the
+performance penalties of splitting your code into many easily understood
+chunks.  There aren&rsquo;t any.  Your build process will combine all your files,
+and compress them into a single file that&rsquo;s completely incomprehensible to
+human eyes.  This is a purely mechanical act, and it&rsquo;s something that should
+be scripted.  Your concern when writing code should be <em>your</em> understanding
+of that code, not the browser&rsquo;s.</p>
+      <footer>
+        <nav>
+          <ul>
+            <li>
+              <span>Older post: </span><a href="/2010/02/an-accessible-pagination-pattern" rel="prev">An Accessible Pagination Pattern</a>
+            </li><li>
+              <span>Newer post: </span><a href="/2010/03/javascript-detection-pattern" rel="next">A JavaScript Detection Pattern</a>
+            </li>
+          </ul>
+          <p>
+            <strong>Further reading:</strong> If you enjoyed this post, take a
+            look at other articles about
+            &#145;<a href="/tags/html" rel="tag" title="View other entries tagged 'html'">html</a>&#146;, 
+            &#145;<a href="/tags/accessibility" rel="tag" title="View other entries tagged 'accessibility'">accessibility</a>&#146;, 
+            &#145;<a href="/tags/aria" rel="tag" title="View other entries tagged 'aria'">aria</a>&#146;, 
+            &#145;<a href="/tags/a11y" rel="tag" title="View other entries tagged 'a11y'">a11y</a>&#146;, 
+            &#145;<a href="/tags/markup" rel="tag" title="View other entries tagged 'markup'">markup</a>&#146;, 
+            &#145;<a href="/tags/pagination" rel="tag" title="View other entries tagged 'pagination'">pagination</a>&#146;, 
+            &#145;<a href="/tags/paging" rel="tag" title="View other entries tagged 'paging'">paging</a>&#146;, 
+            &#145;<a href="/tags/patterns" rel="tag" title="View other entries tagged 'patterns'">patterns</a>&#146;, 
+            &#145;<a href="/tags/flickr" rel="tag" title="View other entries tagged 'flickr'">flickr</a>&#146;, or 
+            &#145;<a href="/tags/cnn" rel="tag" title="View other entries tagged 'cnn'">cnn</a>&#146;.
+          </p>
+          <h3>Questions?  Comments? <span>Drop me a line.</span></h3>
+          <dl>
+            <dt class="twitter">Twitter</dt>
+            <dd><a href="http://twitter.com/mikewest/">@mikewest</a></dd>
+            <dt class="mail">Email</dt>
+            <dd><a href="mailto:mike@mikewest.org">mike@mikewest.org</a></dd>
+          </dl>
+        </nav>
+      </footer>
+    </article>
+    <script>
+      ( function ( d ) {
+        var background  = true,
+            body        = document.getElementsByTagName( 'body' )[ 0 ];
+
+        d.addEventListener(
+          'keydown',
+          function ( e ) {
+            if ( e.which && e.which === 71 ) {
+              body.style.backgroundImage = ( background ) ? 'none' : 'url( ./grid3.png )';
+              background = !background;
+            }
+          }
+        );
+      }( document ) );
+    </script> 
+  </body>
+</html>
