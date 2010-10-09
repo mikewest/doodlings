@@ -28,49 +28,63 @@ class Placeholder( object ):
                 int( step[0]*rgb + start[0]),
                 int( step[1]*rgb + start[1]),
                 int( step[2]*rgb + start[2])))
-
         return colors
 
+    def getColor( self, opacity ):
+        return int( 255 * opacity )
+
     def write( self ):
-        slope       = ( 1.0 * self.width ) / self.height 
-        intslope    = int( round( slope ) )
-        colorstep   = int( 255 / slope )
+        slope       = ( 1.0 * self.height ) / self.width
         pixels      = numpy.zeros( ( self.height, self.width ), dtype=int )
-        borderWidth = range( 1, self.width - 1 )
 
-        print "Slope: %f (%d), colorstep: %d" % ( slope, intslope, colorstep )
+        #
+        # Something similar to http://en.wikipedia.org/wiki/Xiaolin_Wu's_line_algorithm
+        # but special cased, since I know the lines are mirrored thrice.
+        #
+        actualY = 0
+        for leftX in range( 0, ( self.width / 2 ) + 1 ):
+            # Precalculating.  Math!
+            frac        = actualY - int( actualY ) 
+            topColor    = self.getColor( 1 - frac )
+            bottomColor = self.getColor( frac )
+            topY        = int( actualY )
+            bottomY     = self.height - topY - 1
+            rightX      = self.width - leftX - 1
 
-        for y in range( 0, self.height ):
-            point       = slope * y
-            reflection  = self.width - point
-            if self.border and ( y == 0 or y == self.height - 1 ):
-                for x in borderWidth:
-                    pixels[ y, x ] = Placeholder.BACKGROUND
-            elif self.border and ( y == 1 or y == self.height - 2 ):
-                for x in borderWidth:
-                    pixels[ y, x ] = Placeholder.FOREGROUND
-            else:
-                for x in range( -intslope + 1 , intslope ):
-                    color = int( colorstep * ( slope - abs( x ) ) )
-                    print "Point: %d, x: %d, step: %f, colorstep: %d (%f)" % ( point, x, ( slope - x ), colorstep, colorstep * ( slope - abs( x ) ) )
-                    if ( x + point > 0 ):
-                        pixels[ y, int( x + round( point ) ) ] = color
-                    if ( x + reflection < self.width ):
-                        pixels[ y, int( x + round( reflection ) ) ] = color
-                if self.border:
-                    pixels[ y, 1 ]              = Placeholder.FOREGROUND
-                    pixels[ y, self.width - 2 ] = Placeholder.FOREGROUND
-        
-            # for x in widths:
-                # distance    = min( abs( point - x ), abs( reflection - x ) )
-                # if self.border and ( x == 0 or y == 0 or x == self.width - 1 or y == self.height - 1 ):
-                    # pixels[y,x] = Placeholder.BACKGROUND 
-                # elif self.border and ( x == 1 or y == 1 or x == self.width - 2 or y == self.height - 2 ):
-                    # pixels[y,x] = Placeholder.FOREGROUND
-                # elif distance <= slope:
-                    # pixels[y,x] = int( colorstep * ( slope - distance ) )
-        # import pprint
-        # pprint.pprint( pixels )
+            # Actual Line (top-left)
+            pixels[ topY,       leftX ]   = topColor
+            pixels[ topY + 1,   leftX ]   = bottomColor
+
+            # Horizontal Flip (top-right)
+            pixels[ topY,       rightX ]  = topColor
+            pixels[ topY + 1,   rightX ]  = bottomColor
+
+            # Vertical Flip (bottom-left)
+            pixels[ bottomY,     leftX ]  = topColor
+            pixels[ bottomY - 1, leftX ]  = bottomColor
+
+            # 180-degree Rotation
+            pixels[ bottomY,     rightX ] = topColor
+            pixels[ bottomY - 1, rightX ] = bottomColor
+            
+            # Increment `actualY`
+            actualY += slope
+            
+            # Worry about the border (avoids another loop)
+            if self.border:
+                pixels[ 0,                leftX  ] = Placeholder.BACKGROUND
+                pixels[ self.height - 1,  leftX  ] = Placeholder.BACKGROUND
+                pixels[ 0,                rightX ] = Placeholder.BACKGROUND
+                pixels[ self.height - 1,  rightX ] = Placeholder.BACKGROUND
+                if leftX > 1:
+                    pixels[ 1,                leftX  ] = Placeholder.FOREGROUND
+                    pixels[ self.height - 2,  leftX  ] = Placeholder.FOREGROUND
+                    pixels[ 1,                rightX ] = Placeholder.FOREGROUND
+                    pixels[ self.height - 2,  rightX ] = Placeholder.FOREGROUND
+                if leftX == 1:
+                    for y in range( 1, self.height - 1 ):
+                        pixels[ y,  leftX  ] = Placeholder.FOREGROUND
+                        pixels[ y,  rightX ] = Placeholder.FOREGROUND
 
         with open( self.out, 'wb' ) as f:
             w = Writer( self.width, self.height, background=self.colors[0], palette=self.colors, bitdepth=8 )
