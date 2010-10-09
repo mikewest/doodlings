@@ -19,7 +19,7 @@ class Placeholder( object ):
 
     def generateColors( self, start, end ):
         colors  = []
-        steps   = 256.0
+        steps   = Placeholder.FOREGROUND * 1.0
         start   = ( int( start[0:2], 16 ),  int( start[2:4], 16 ),  int( start[4:6], 16 ) )
         end     = ( int( end[0:2], 16 ),    int( end[2:4], 16 ),    int( end[4:6], 16 ) )
         step    = ( (end[0]-start[0])/steps, (end[1]-start[1])/steps, (end[2]-start[2])/steps )
