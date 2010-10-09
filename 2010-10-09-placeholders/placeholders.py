@@ -5,7 +5,7 @@ from __future__ import with_statement
 
 import os, sys, re, numpy
 from lib.png import Writer
-from optparse import OptionParser
+from optparse import OptionParser, OptionValueError
 
 class Placeholder( object ):
     FOREGROUND = 255
@@ -90,6 +90,19 @@ class Placeholder( object ):
             w = Writer( self.width, self.height, background=self.colors[0], palette=self.colors, bitdepth=8 )
             w.write( f, pixels )
 
+def is_valid_hex( option, opt_str, value, parser ):
+    try:
+        r,g,b = ( int( value[0:2], 16 ),  int( value[2:4], 16 ),  int( value[4:6], 16 ) )
+        if len(value) == 6 and min( r, g, b ) >= 0 and max( r, g, b ) <= 255:
+            setattr(parser.values, option.dest, value )
+            return
+    except:
+        pass
+    raise OptionValueError(
+            """
+    `%s` expects a hex value in `RRGGBB` format (`000000` for black, and `FFFFFF` white).
+    You entered `%s`""" % (opt_str, value))
+
 def main(argv=None):
     if argv is None:
         argv = sys.argv
@@ -108,17 +121,21 @@ def main(argv=None):
                         help="Output file")
 
     parser.add_option(  "--background",
-                        action="store",
+                        action="callback",
+                        type="string",
                         dest="background",
                         default="000000",
                         metavar="RRGGBB",
+                        callback=is_valid_hex,
                         help="Background color in hex (`RRGGBB`) format")
 
     parser.add_option(  "--foreground",
-                        action="store",
+                        action="callback",
+                        type="string",
                         dest="foreground",
                         default="FFFFFF",
                         metavar="RRGGBB",
+                        callback=is_valid_hex,
                         help="Foreground color in hex (`RRGGBB`) format")
 
     parser.add_option(  "--width",
@@ -138,6 +155,7 @@ def main(argv=None):
     parser.add_option(  "--no-border",
                         action="store_false",
                         dest="border",
+                        type=None,
                         default=True,
                         help="Suppress rendering of border around the placeholder image.")
     
@@ -147,5 +165,4 @@ def main(argv=None):
     p.write()
 
 if __name__ == "__main__":
-    import cProfile
-    cProfile.run('main()', 'mainprof')
+    sys.exit( main() )
