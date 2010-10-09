@@ -33,38 +33,44 @@ class Placeholder( object ):
 
     def write( self ):
         slope       = ( 1.0 * self.width ) / self.height 
-        intslope    = int( slope )
+        intslope    = int( round( slope ) )
         colorstep   = int( 255 / slope )
         pixels      = numpy.zeros( ( self.height, self.width ), dtype=int )
         borderWidth = range( 1, self.width - 1 )
 
-        print "Slope: %d, Colorstep: %d" % ( slope, colorstep )
+        print "Slope: %f (%d), colorstep: %d" % ( slope, intslope, colorstep )
 
         for y in range( 0, self.height ):
             point       = slope * y
             reflection  = self.width - point
             if self.border and ( y == 0 or y == self.height - 1 ):
-                print "Writing the border for y = %d" % y 
                 for x in borderWidth:
                     pixels[ y, x ] = Placeholder.BACKGROUND
             elif self.border and ( y == 1 or y == self.height - 2 ):
-                print "Writing the border for y = %d" % y 
                 for x in borderWidth:
                     pixels[ y, x ] = Placeholder.FOREGROUND
             else:
-                for x in range( -intslope, intslope ):
-                    color = int( colorstep * ( slope - x )  ) )
+                for x in range( -intslope + 1 , intslope ):
+                    color = int( colorstep * ( slope - abs( x ) ) )
+                    print "Point: %d, x: %d, step: %f, colorstep: %d (%f)" % ( point, x, ( slope - x ), colorstep, colorstep * ( slope - abs( x ) ) )
                     if ( x + point > 0 ):
-                        print "Putting %d into (%d,%d - %d)" % ( color, y, x, point )
-                        pixels[ y, x + point ] = 1
+                        pixels[ y, int( x + round( point ) ) ] = color
                     if ( x + reflection < self.width ):
-                        pixels[ y, x + reflection ] = 1
+                        pixels[ y, int( x + round( reflection ) ) ] = color
                 if self.border:
                     pixels[ y, 1 ]              = Placeholder.FOREGROUND
                     pixels[ y, self.width - 2 ] = Placeholder.FOREGROUND
         
-        import pprint
-        pprint.pprint( pixels )
+            # for x in widths:
+                # distance    = min( abs( point - x ), abs( reflection - x ) )
+                # if self.border and ( x == 0 or y == 0 or x == self.width - 1 or y == self.height - 1 ):
+                    # pixels[y,x] = Placeholder.BACKGROUND 
+                # elif self.border and ( x == 1 or y == 1 or x == self.width - 2 or y == self.height - 2 ):
+                    # pixels[y,x] = Placeholder.FOREGROUND
+                # elif distance <= slope:
+                    # pixels[y,x] = int( colorstep * ( slope - distance ) )
+        # import pprint
+        # pprint.pprint( pixels )
 
         with open( self.out, 'wb' ) as f:
             w = Writer( self.width, self.height, background=self.colors[0], palette=self.colors, bitdepth=8 )
