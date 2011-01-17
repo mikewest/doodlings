@@ -1,6 +1,6 @@
 
       html  {
-        background:   #DDD url( ./background.jpg );
+        background:   #DDD url( ./background.jpg ) fixed;
         overflow-y:   scroll;
         font-family:  Georgia, Palatino, 'Palatino Linotype', Times, 'Times New Roman', serif;
       } 
@@ -24,7 +24,6 @@
         left:     -999em;
       }
       a {
-        border-bottom:      1px solid #000;
         color:              #000;
         text-decoration:    none;
         -webkit-transition: all 0.2s ease-out;

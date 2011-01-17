@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Mike West is a web developer in Munich.</title>
+    <style>
+      html {
+        background: url(background.png);
+        width:  100%;
+        height: 100%;
+      }
+      body {
+        display: -webkit-box;
+        -webkit-box-orient: horizontal;
+        -webkit-box-pack: center;
+        -webkit-box-align: center;
+
+        display: -moz-box;
+        -moz-box-orient: horizontal;
+        -moz-box-pack: center;
+        -moz-box-align: center;
+
+        display: box;
+        box-orient: horizontal;
+        box-pack: center;
+        box-align: center;
+        padding:  0;
+        margin:   0;
+        width:  100%;
+        height: 100%;
+      }
+
+      address {
+        border:       1px solid #FFF;
+        border-color: #FFF #DDD #DDD #FFF;
+        background:   #DDD;
+        width:        460px;
+        height:       246px;
+        box-shadow:   3px 3px 5px rgba( 0, 0, 0, 0.5 );
+        padding:      20px;
+        position:     relative;
+      }
+        h1 {
+          font:         30px/1 "Helvetica Neue", Helvetica, Arial, Sans-Serif;
+          font:         45px/1 Baskerville, Times, 'Times New Roman', serif;
+          text-shadow:  #EEE 0 1px 0;
+          margin:       0;
+          padding:      0;
+        }
+        p {
+          bottom:       0;
+          font:         20px/1.25 "Helvetica Neue", Helvetica, Arial, Sans-Serif;
+          position:     absolute;
+          right:        20px;
+        }
+          p .aural {
+            position: absolute;
+            left:     -999em;
+          }
+          p a {
+            text-align: right;
+            display:  block;
+            color:    #000;
+            text-decoration:  none;
+          }
+    </style>
+  </head>
+  <body>
+    <address class="vcard">
+      <!--
+        This, of course, is debatable.  I'm pretty sure it counts as "the
+        contact information for its nearest `article` or `body` element
+        ancestor", but since there's nothing on this page _but_ a sentence
+        describing my contact information, your neightborhood pedant is
+        likely to disagree.
+      -->
+      <h1 class="fn">Mike West</h1>
+      <p>
+        <span class="aural">Visit my website at</span>
+        <a href="http://mikewest.org/" class="url">http://mikewest.org/</a>
+        <span class="aural">, or drop me a line.  My email address is</span>
+        <a href="mailto:mike@mikewest.org" class="email">mike@mikewest.org</a>
+        <span class="aural">, I'm </span>
+        <a href="http://twitter.com/mikewest" class="twitter url">@mikewest</a>
+        <span class="aural">on Twitter, and usually on Skype as</span>
+        <a href="skype:mikewest.org?chat" class="skype url">mikewest.org</a>
+        <span class="aural">.</span>
+      </p>
+
+    </address>
+  </body>
+</html>
