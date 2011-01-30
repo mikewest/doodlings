@@ -3,86 +3,112 @@
   <head>
     <meta charset="utf-8">
     <title>Mike West is a web developer in Munich.</title>
+    <link href='http://fonts.googleapis.com/css?family=Droid+Sans' rel='stylesheet' type='text/css'>
     <style>
+      <!--
+        *   vCard icon taken from the [Microformats icons page][1], created by
+            [Chris Messina][2]
+
+        *   Other icons from Paul Robert Lloyd's excellent [Social Media Icons][3]
+            collection.  Thanks!
+
+        [1]: http://microformats.org/wiki/icons 
+        [2]: http://factoryjoe.com/blog
+        [3]: http://paulrobertlloyd.com/2009/06/social_media_icons
+        
+      -->
       html {
         background: url(background.png);
-        width:  100%;
-        height: 100%;
+        height:     100%;
+        width:      100%;
       }
       body {
         display: -webkit-box;
-        -webkit-box-orient: horizontal;
+        -webkit-box-orient: vertical;
         -webkit-box-pack: center;
         -webkit-box-align: center;
 
         display: -moz-box;
-        -moz-box-orient: horizontal;
+        -moz-box-orient: vertical;
         -moz-box-pack: center;
         -moz-box-align: center;
 
-        display: box;
-        box-orient: horizontal;
-        box-pack: center;
-        box-align: center;
-        padding:  0;
-        margin:   0;
-        width:  100%;
-        height: 100%;
+        box-align:  center;
+        box-orient: vertical;
+        box-pack:   center;
+        display:    box;
+        height:     100%;
+        margin:     0;
+        padding:    0;
+        width:      100%;
       }
-
       address {
-        border:       1px solid #FFF;
-        border-color: #FFF #DDD #DDD #FFF;
         background:   #DDD;
-        width:        460px;
-        height:       246px;
+        border-color: #FFF #DDD #DDD #FFF;
+        border:       1px solid #FFF;
         box-shadow:   3px 3px 5px rgba( 0, 0, 0, 0.5 );
+        height:       246px;
         padding:      20px;
         position:     relative;
+        width:        460px;
       }
         h1 {
-          font:         30px/1 "Helvetica Neue", Helvetica, Arial, Sans-Serif;
           font:         45px/1 Baskerville, Times, 'Times New Roman', serif;
-          text-shadow:  #EEE 0 1px 0;
           margin:       0;
           padding:      0;
+          text-shadow:  #EEE 0 1px 0;
         }
         p {
           bottom:       0;
-          font:         16px/1.25 "Helvetica Neue", Helvetica, Arial, Sans-Serif;
+          font:         15px/1.25 "Droid Sans", "Helvetica Neue", Helvetica, Arial, Sans-Serif;
           position:     absolute;
           right:        5px;
         }
           p .aural {
-            position: absolute;
             left:     -999em;
+            position: absolute;
           }
           p a {
-            position:   relative;
-            text-align: right;
-            display:  block;
-            color:    #000;
+            background:       #DDD -20px center no-repeat;
+            border-radius:    20px;
+            border:           1px solid #DDD;
+            color:            #000;
+            display:          block;
+            padding:          1px 10px 1px 30px;
+            position:         relative;
+            text-align:       right;
             text-decoration:  none;
-            padding:          1px 20px 1px 0;
+
+            -webkit-transition: all 300ms ease;
+            -moz-transition: all 300ms ease;
+            -o-transition: all 300ms ease;
+            transition: all 300ms ease;
           }
-            p a:hover {
-              color:        #000;
+            p a:hover, p a:focus {
+              background-color:     #B9BEC4;
+              background-position:  8px center;
+              border-color:         #9AA;
+              color:                #000;
+              outline:              none;
             }
-            .email:hover {
-              background: url(email.png) center right no-repeat;
-            }
-            .skype:hover {
-              background: url(skype.png) center right no-repeat;
-            }
-            .twitter:hover {
-              background: url(twitter.png) center right no-repeat;
-            }
-            .us:hover {
-              background: url(us.png) center right no-repeat;
-            }
-            .de:hover {
-              background: url(de.png) center right no-repeat;
-            }
+              .url {
+                background-image: url(website.png);
+              }
+              .email {
+                background-image: url(email.png);
+              }
+              .skype {
+                background-image: url(skype.png);
+              }
+              .twitter {
+                background-image: url(twitter.png);
+              }
+              .us {
+                background-image: url(us.png);
+              }
+              .de {
+                background-image: url(de.png);
+              }
     </style>
   </head>
   <body>
@@ -91,21 +117,21 @@
         This, of course, is debatable.  I'm pretty sure it counts as "the
         contact information for its nearest `article` or `body` element
         ancestor", but since there's nothing on this page _but_ a sentence
-        describing my contact information, your neightborhood pedant is
+        describing my contact information, your neighborhood pedant is
         likely to disagree.
       -->
       <h1 class="fn">Mike West</h1>
       <p>
         <span class="aural">Visit my website at</span>
-        <a href="http://mikewest.org/" class="url">http://mikewest.org/</a>
+        <a href="http://mikewest.org/" class="url" rel="me">http://mikewest.org/</a>
         <span class="aural">, or drop me an email.  My address is</span>
         <a href="mailto:mike@mikewest.org" class="email">mike@mikewest.org</a>
         <span class="aural">, I'm </span>
-        <a href="http://twitter.com/mikewest" class="twitter url">@mikewest</a>
+        <a href="http://twitter.com/mikewest" class="twitter url" rel="me">@mikewest</a>
         <span class="aural">on Twitter, and usually on Skype as</span>
-        <a href="skype:mikewest.org?chat" class="skype url">mikewest.org</a>
+        <a href="skype:mikewest.org?add" class="skype url">mikewest.org</a>
         <span class="aural">.  If you prefer phones (really?), leave me some voicemail at either</span>
-        <a href="tel:+498023515676" class="tel de">+49 89 2351 5676</a>
+        <a href="tel:+498923515676" class="tel de">+49 89 2351 5676</a>
         <span class="aural">or</span>
         <a href="tel:+16502651553" class="tel us">+1 650 265 1553</a>
       </p>
