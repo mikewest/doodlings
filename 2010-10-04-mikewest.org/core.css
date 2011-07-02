@@ -1,38 +1,86 @@
+/**
+ * Core components of `mikewest.org`.
+ *
+ * Here, I'll define things like custom web fonts and some of the base tags'
+ * formatting. In general, I'd like to use Quattrocento for headings, and
+ * Georgia for body text.
+ */
+@font-face {
+  font-family: 'Quattrocento';
+  font-style: normal;
+  font-weight: normal;
+  src: local('Quattrocento Roman Regular'), local('QuattrocentoRoman'), url('./Quattrocento-Regular.ttf'), url('http://themes.googleusercontent.com/font?kit=WZDISdyil4HsmirlOdBRFKRDOzjiPcYnFooOUGCOsRk') format('woff');
+}
 
-      html  {
-        background:   #DDD url( ./background.jpg ) fixed;
-        overflow-y:   scroll;
-        font-family:  Georgia, Palatino, 'Palatino Linotype', Times, 'Times New Roman', serif;
-      } 
-      body {
-        -webkit-border-radius: 0 0 5px 5px;
-        background:   rgba( 255, 255, 255, 0.4 ) url( ./grid3.png ) repeat-y 12px 12px;
-        border:       1px solid #666;
-        border-width: 0 1px;
-        margin:       0.5em auto 2em;
-        padding:      12px;
-        position:     relative;
-        width:        760px;
+html  {
+  background:   #DDD url( ./cork_1.png ) fixed;
+  font-family:  Georgia, Palatino, 'Palatino Linotype', Times, 'Times New Roman', serif;
+  overflow-y:   scroll;
+} 
 
-        -webkit-box-shadow: 0 0 15px rgba( 0, 0, 0, 0.75 );
-      }
-      abbr {
-        border-bottom:  1px dashed #333;
-      }
-      .offscreen {
-        position: absolute;
-        left:     -999em;
-      }
-      a {
-        color:              #000;
-        text-decoration:    none;
-        -webkit-transition: all 0.2s ease-out;
-      }
-        a:hover {
-          border-color:     #4281BA;
-          color:            #4281BA;
-        }
+body {
+  background: rgba( 255, 255, 255, 0.6 ) repeat-y 12px 12px;
+  border-width: 0 1px 1px;
+  border: 1px solid #FFF;
+  box-shadow: 0 0 5px rgba( 0, 0, 0, 0.3 ), inset 0 0 10px rgba(0, 0, 0, 0.1);
+  margin: 0 auto 2em;
+  padding: 12px;
+  position: relative;
+  width: 760px;
+}
 
+body::before, body::after {
+  -moz-box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+  -moz-transform: skew(-5deg) rotate(-5deg);
+  -ms-transform: skew(-5deg) rotate(-5deg);
+  -o-transform: skew(-5deg) rotate(-5deg);
+  -webkit-transform: skew(-5deg) rotate(-5deg);
+  background: transparent;
+  bottom: 12px;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
+  content: ' ';
+  height: 10px;
+  left: 12px;
+  position: absolute;
+  transform: skew(-5deg) rotate(-5deg);
+  width: 40%;
+  z-index: -1;
+}
+
+body::after {
+  left: auto;
+  right: 12px;
+  -webkit-transform: skew(5deg) rotate(5deg);
+  -moz-transform: skew(5deg) rotate(5deg);
+  -ms-transform: skew(5deg) rotate(5deg);
+  -o-transform: skew(5deg) rotate(5deg);
+  transform: skew(5deg) rotate(5deg);
+}
+
+abbr {
+  border-bottom: 1px dashed #333;
+}
+
+.offscreen {
+  position: absolute;
+  left: -999em;
+}
+
+a {
+  color: #000;
+  text-decoration: none;
+  -webkit-transition: all 0.2s ease-out;
+}
+
+a:hover {
+  border-color: #4281BA;
+  color: #4281BA;
+}
+
+::selection {
+  background: #4281BA;
+  color: #FFF;
+}
 
 /**
  *  Clearfix.

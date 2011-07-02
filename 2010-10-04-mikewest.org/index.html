@@ -8,54 +8,54 @@
       /**
        *  Homepage Header
        */
-      header {
-        display:      block;
-        font-family:  Baskerville, Times, 'Times New Roman', serif;
-        margin:       0;
+      .homepage > header {
+        display: block;
+        font-family: Quattrocento, Baskerville, Times, 'Times New Roman', serif;
+        margin: 0;
       }
-        header h1 {
-          font:           75px/0.8 Baskerville, Times, 'Times New Roman', serif;
-          margin:         0;
-          padding:        0;
-          letter-spacing: -1px;
-        }
-          header h1 a {
-            color:            #000;
-            text-decoration:  none;
-            text-rendering:   optimizeLegibility;
-          }
-          header h1 img {
-            -webkit-background-clip:  padding-box;
-            -webkit-box-shadow:       0 0 5px rgba( 0, 0, 0, 0.75 );
-            background:               #EEE;
-            float:                    right;
-            margin-left:              24px;
-            border:                   1px solid #DDD;
-          }
-        header p {
-          color:            #222;
-          font-size:        39px;
-          line-height:      1.21;
-          margin:           0;
-          text-align:       justify;
-          text-rendering:   optimizeLegibility;
-        }
-          header em, header .amp {
-            font-size:      49px;
-            text-shadow:    #DDD 2px 2px;
-            letter-spacing: 2px;
-            line-height:    1;
-            vertical-align: text-bottom;
-          }
-          header .amp {
-            font: italic 1em/0.1 'Hoefler Text', Baskerville, Palatino, Constantina, 'Book Antiqua', 'URW Palladio L', serif;
-            vertical-align: baseline;
-          }
-          header p strong {
-            color:            #000;
-            font-weight:      400;
-            letter-spacing:   1px;
-          }
+      .homepage > header h1 {
+        font-weight: 400;
+        font-size: 65px;
+        line-height: 1;
+        margin: 0;
+        padding: 0;
+      }
+      .homepage > header h1 a {
+        color: #000;
+        text-decoration: none;
+        text-rendering: optimizeLegibility;
+      }
+      .homepage > header h1 img {
+        -webkit-background-clip: padding-box;
+        box-shadow: 0 0 5px rgba( 0, 0, 0, 0.75 );
+        background: #EEE;
+        float: right;
+        margin-left: 24px;
+        border: 1px solid #DDD;
+      }
+      .homepage > header p {
+        color: #222;
+        font-size: 34px;
+        line-height: 1.3;
+        margin: 0;
+        text-align: justify;
+        text-rendering: optimizeLegibility;
+      }
+      .homepage > header em, .homepage header .amp {
+        font-size: 37px;
+        text-shadow: #DDD 2px 2px;
+        letter-spacing: 2px;
+        line-height: 1.5;
+        vertical-align: middle;
+      }
+      .homepage > header .amp {
+        font: italic 1em/0.1 'Hoefler Text', Baskerville, Palatino, Constantina, 'Book Antiqua', 'URW Palladio L', serif;
+      }
+      .homepage > header p strong {
+        color: #000;
+        font-weight: 400;
+        letter-spacing: 1px;
+      }
       /**
        *  Navigation
        */
@@ -86,7 +86,7 @@
             border-bottom:  1px solid #BBB;
             margin:         0;
             padding:        0;
-            font:           30px/1 Baskerville, Times, 'Times New Roman', serif;
+            font:           35px/1 Quattrocento, Baskerville, Times, 'Times New Roman', serif;
             text-align:     center;
           }
             nav h2 a {
@@ -133,8 +133,13 @@
         position:     relative;
         margin:       24px 0;
         padding:      6px;
-        background:   rgba( 0, 0, 0, 0.1 );
+        background:   rgba( 0, 0, 0, 0.05 );
+        -webkit-transition: all 0.5s ease;
       }
+        nav article:hover {
+          background: rgba( 0, 0, 0, 0.1 );
+          box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+        }
         nav article a {   /*  Title */
           border-bottom:    1px solid #111;
           color:            #000;
@@ -171,20 +176,26 @@
        *    Footer
        */
         footer {
-          -webkit-border-radius: 0 0 5px 5px;
-          background: #333;
-          border-top: 1px solid #111;
-          color:      #DDD;
-          margin:     24px -11px -11px; 
-          padding:    6px 12px;
+          background: #222;
+          border: 1px solid #111;
+          border-color: transparent #DDD #FFF;
+          color: #DDD;
+          margin: 0 -13px -13px; 
+          padding: 6px 12px;
           text-align: right;
         }
-          footer a {
-            color:  #AAA;
-          }
+        footer small {
+          font: 0.7em/1 Helvetica, Arial;
+        }
+        footer a {
+          color:  #AAA;
+        }
+        footer a:hover {
+          color: #FFF;
+        }
     </style>
   </head>
-  <body>
+  <body class="homepage">
     <header>
       <h1>
         <img src="me.jpg" width="422" height="237" alt="">
@@ -199,7 +210,7 @@
     <nav>
       <ul>
         <li class="writings">
-          <h2><a href="/2010/">Writings</a></h2>
+          <h2><a href="/2010/">Writing</a></h2>
           <ol>
             <li>
                 <article class="hentry"> 
@@ -254,7 +265,7 @@
           </ul>
         </li>
         <li class="readings">
-          <h2><a href="">Readings</a></h2>
+          <h2><a href="">Reading</a></h2>
           <ul>
             <li><a href="http://projects.mikewest.org/static_gettext/"><code>static_gettext</code></a></li>
           </ul>
@@ -263,15 +274,15 @@
     </nav>
     <footer>
         <small class="vcard">
-            &copy; 2010 <a href="http://mikewest.org/" class="fn">Mike West</a>
+            &copy; 2011 <a href="http://mikewest.org/" class="fn">Mike West</a>
             (<a href="mailto:mike@mikewest.org" class="email">mike@mikewest.org</a>),
             <a href="/license/" rel="license">Some rights reserved</a>.
         </small>
     </footer>
     <script>
       ( function ( d ) {
-        var background  = true,
-            body        = document.getElementsByTagName( 'body' )[ 0 ];
+        var background = false;
+        var body = document.getElementsByTagName( 'body' )[ 0 ];
 
         d.addEventListener(
           'keydown',

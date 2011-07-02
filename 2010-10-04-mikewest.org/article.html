@@ -5,176 +5,226 @@
     <title>Article.</title>
     <link rel="stylesheet" href="./core.css" type="text/css">
     <style>
-      article header {
+      /**
+       * Blog Article Header
+       *
+       * Includes the article's author in an `address` tag (formatted as a
+       * vcard), the title in an `h1`, and the publication date in a `time`
+       * tag:
+       *
+       *     <article class="blog">
+       *       <header>
+       *         <address class="vcard">
+       *           <a href="/" rel="home" class="fn url">AUTHOR NAME</a>
+       *         </address>
+       *         <h1>ARTICLE TITLE</h1>
+       *         <time pubtime datetime="DATETIME">Friendly, human time.</time>
+       *       </header>
+       *       ...
+       *     </article>
+       */
+      .blog header {
         margin:     0 112px;
         text-align: center;
       }
-      article header h1 {
-        font:   48px/1.2 Baskerville, Times, 'Times New Roman', serif;
+
+      .blog header h1 {
+        font:   48px/1.2 Quattrocento, Baskerville, Times, 'Times New Roman', serif;
         margin: 0;
       }
-        article header time {
-          font:   16px/1 Georgia, Palatino, 'Palatino Linotype', Times, 'Times New Roman', serif;
-          color:  #888;
-        }
-        article header address {
-          background: rgba( 0, 0, 0, 0.9 );
-          margin:     -11px -123px 12px;
-          text-align: left;
-        }
-        article header address a {
-            border:         0;
-            color:          #FFF; 
-            display:        inline-block;
-            font:           normal 100 24px/1 Baskervilla, Times, 'Times New Roman', serif;
-            letter-spacing: 2px;
-            padding:        6px 12px;
-            text-rendering:   optimizeLegibility;
-          }
 
-        article p { 
-          color:            #222;
-          font-size:        16px;
-          line-height:      1.5;
-          margin:           12px 112px 0;
+      .blog header time {
+        font:   16px/1 Georgia, Palatino, 'Palatino Linotype', Times, 'Times New Roman', serif;
+        color:  #888;
+      }
+
+      .blog header address {
+        background: rgba( 0, 0, 0, 0.9 );
+        margin:     -11px -123px 12px;
+        text-align: left;
+      }
+
+      .blog header address a {
+        border: 0;
+        color: #FFF; 
+        display: inline-block;
+        font: normal 100 24px/1 Quattrocento, Baskerville, Times, 'Times New Roman', serif;
+        letter-spacing: 2px;
+        padding: 6px 12px;
+        text-rendering: optimizeLegibility;
+        text-decoration: none;
+      }
+
+      /**
+       * Blog Article Core
+       *
+       * Defines the basic look and feel of an article's base elements.
+       *
+       *     <article class="blog">
+       *       ...
+       *       <p>This is a paragraph!</p>
+       *       <p>It contains <a href="URL">links</a>!</p>
+       *       <h2>And headings!</h2>
+       *       
+       *       ...
+       *     </article>
+       */
+      article a {
+        border-bottom: 1px solid #CCC;
+      }
+
+      article p { 
+        color: #222;
+        font-size: 18px;
+        line-height: 1.5;
+        margin: 12px 112px 0;
+      }
+
+      article h2 {
+        border-bottom: 1px solid #BBB;
+        font: 24px/1.2 Baskerville, Times, 'Times New Roman', serif;
+        margin: 0.75em 88px;
+      }
+
+      article ul,
+      article ol {
+        margin: 0 112px;
+        padding: 0;
+      }
+
+      article li ul,
+      article li ol {
+        margin: 0 0 0 25px;
+      }
+
+      article ul p,
+      article ol p {
+        margin: 0.5em 0 0;
+      }
+
+      pre code {
+        background: #F8F8FF;
+        border: 1px solid #CCC;
+        font: 14px/1.2 Inconsolata, 'Panic Sans', Monaco, Courier, monospace;
+        display: block;
+        margin: 1em 112px;
+        max-height: 25em;
+        overflow: auto;
+        padding: 1em;
+        -webkit-transition: margin 0.5s ease-out;
+      }
+
+      pre code:hover,
+      pre code:focus {
+        margin: 1em 0;
+      }
+        ul pre code,
+        ol pre code {
+          margin: 1em 0;
         }
-        article h2 {
-          border-bottom:  1px solid #BBB;
-          font:           24px/1.2 Baskerville, Times, 'Times New Roman', serif;
-          margin:         0.75em 88px;
-        }
-        article ul,
-        article ol {
-          margin:         0 112px;
-          padding:        0;
-        }
-            article li ul,
-            article li ol {
-              margin:     0 0 0 25px;
-            }
-            article ul p,
-            article ol p {
-              margin:       0.5em 0 0;
-            }
-        pre code {
-          background:   #BEDCE7;
-          border:       1px solid #BEDCE7;
-          font:         14px/1.2 Inconsolata, 'Panic Sans', Monaco, Courier, monospace;
-          display:      block;
-          margin:       1em 112px;
-          max-height:   25em;
-          overflow:     auto;
-          padding:      1em;
-          -webkit-transition: margin 0.5s ease-out, background 0.5s ease-out;
-        }
-          pre code:hover, pre code:focus {
-            background: #EAF2FD;
-            margin:     1em 0;
+          ul pre code:hover,
+          ol pre code:hover {
+            margin: 1em -112px;
           }
-          ul pre code,
-          ol pre code {
-            margin:     1em 0;
-          }
-            ul pre code:hover,
-            ol pre code:hover {
-              margin:   1em -112px;
+            li ul pre code:hover,
+            li ol pre code:hover {
+              margin: 1em -112px 1em -137px;
             }
-              li ul pre code:hover,
-              li ol pre code:hover {
-                margin:   1em -112px 1em -137px;
+      article footer {
+        margin: 1em 88px;
+        border-top: 2px solid #BBB;
+      }
+        footer nav {
+          border-top: 1px solid #999;
+          margin-top: 1px;
+          display:  block;
+        }
+          footer nav ul {
+            display:    block;
+            list-style: none inside;
+            margin:     1px 0 1em;
+          }
+            footer nav li {
+              display:  inline-block;
+              width:    292px;
+            }
+              footer nav li:last-child a {
+                text-align: right;
               }
-        article footer {
-          margin:     1em 88px;
-          border-top: 2px solid #BBB;
-        }
-          footer nav {
-            border-top: 1px solid #999;
-            margin-top: 1px;
-            display:  block;
-          }
-            footer nav ul {
-              display:    block;
-              list-style: none inside;
-              margin:     1px 0 1em;
-            }
-              footer nav li {
-                display:  inline-block;
-                width:    292px;
-              }
-                footer nav li:last-child a {
-                  text-align: right;
-                }
-                  footer nav li:first-child a:before,
-                  footer nav li:last-child a:after {
-                    display:    inline-block;
-                    margin:     0 0 0 -24px;
-                    width:      24px;
-                    content:    "«";
-                    text-align: center;
-                  }
-                    footer nav li:last-child a:after {
-                      content:    "»";
-                      margin:     0 -24px 0 0;
-                    }
-                footer nav li a {
-                  border:     0;
-                  padding:    6px 24px;
+                footer nav li:first-child a:before,
+                footer nav li:last-child a:after {
                   display:    inline-block;
-                  width:      244px;
-                  background: rgba( 0, 0, 0, 0.25 );
+                  margin:     0 0 0 -24px;
+                  width:      24px;
+                  content:    "«";
+                  text-align: center;
                 }
-                  footer nav li a:hover {
-                    color:      #EAF2FD;
-                    background: rgba( 0, 0, 0, 0.75 );
+                  footer nav li:last-child a:after {
+                    content:    "»";
+                    margin:     0 -24px 0 0;
                   }
-                footer nav li span {
-                  position: absolute;
-                  left:     -999em;
+              footer nav li a {
+                border:     0;
+                padding:    6px 24px;
+                display:    inline-block;
+                width:      244px;
+                background: rgba( 0, 0, 0, 0.25 );
+              }
+                footer nav li a:hover {
+                  color:      #EAF2FD;
+                  background: rgba( 0, 0, 0, 0.75 );
                 }
-            footer p {
-              float:    left;
-              margin:   12px 24px;
-              width:    312px;
+              footer nav li span {
+                position: absolute;
+                left:     -999em;
+              }
+          footer p {
+            float:    left;
+            margin:   12px 24px;
+            width:    312px;
+          }
+          footer h3 {
+            float:      left;
+            width:      200px;
+            font-size:  16px;
+            margin:     12px 0 0;
+          }
+            footer h3 span {
+              display:      block;
+              font-weight:  400;
+              margin-top:   6px;
             }
-            footer h3 {
-              float:      left;
-              width:      200px;
-              font-size:  16px;
-              margin:     12px 0 0;
+          footer dl {
+            float:      left;
+            margin:     0;
+            width:      200px;
+          }
+            footer dt {
+              display:  block;
+              overflow: hidden;
+              padding:  0;
+              margin:   6px 0;
+              width:    0;
             }
-              footer h3 span {
-                display:      block;
-                font-weight:  400;
-                margin-top:   6px;
-              }
-            footer dl {
-              float:      left;
-              margin:     0;
-              width:      200px;
+            footer dd {
+              display:  inline-block;
+              margin:   0 0 0 5px;
+              padding:  0;  
             }
-              footer dt {
-                display:  block;
-                padding:  0;
-                margin:   6px 0;
-              }
-              footer dd {
-                margin:   0 0 0 30px;
-                padding:  0;  
-              }
-              footer dt.twitter {
-                background: url( twitter.png ) no-repeat top left;
-                padding:  0 0 0 20px;
-              }
-              footer dt.mail {
-                background: url( email.png ) no-repeat top left;
-                padding:  0 0 0 20px;
-              }
+            footer dt.twitter {
+              background: url( twitter.png ) no-repeat top left;
+              padding:  0 0 0 20px;
+            }
+            footer dt.mail {
+              background: url( email.png ) no-repeat top left;
+              padding:  0 0 0 20px;
+            }
 
             
     </style>
   </head>
   <body>
-    <article>
+    <article class="blog">
       <header>
         <address class="vcard"><a href="http://mikewest.org/" rel="home" class="fn url">Mike West</a></address>
         <h1>This is an article's title.</h1>
@@ -481,12 +531,16 @@ of that code, not the browser&rsquo;s.</p>
             &#145;<a href="/tags/cnn" rel="tag" title="View other entries tagged 'cnn'">cnn</a>&#146;.
           </p>
           <h3>Questions?  Comments? <span>Drop me a line.</span></h3>
-          <dl>
-            <dt class="twitter">Twitter</dt>
-            <dd><a href="http://twitter.com/mikewest/">@mikewest</a></dd>
-            <dt class="mail">Email</dt>
-            <dd><a href="mailto:mike@mikewest.org">mike@mikewest.org</a></dd>
-          </dl>
+          <ul >
+            <li class="twitter">
+              <span>Twitter: </span>
+              <a href="http://twitter.com/mikewest/">@mikewest</a>
+            </li>
+            <li class="mail">
+              <span>Email: </span>
+              <a href="mailto:mike@mikewest.org">mike@mikewest.org</a>
+            </li>
+          </ul>
         </nav>
       </footer>
     </article>
