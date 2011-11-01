@@ -1,0 +1,94 @@
+<!doctype html>
+<html>
+  <head>
+    <title>New!</title>
+    <link href='http://fonts.googleapis.com/css?family=Quattrocento' rel='stylesheet' type='text/css'>
+  </head>
+  <body>
+    <style>
+      body, html {
+        padding: 0;
+        margin: 0;
+      }
+
+      address {
+        background: #333;
+        background-image: -webkit-linear-gradient(top, #444444 22%,#333333 84%);
+        box-shadow: -5px 3px 5px -2px #999;
+        margin: 0;
+        padding: 5px 0;
+        position: fixed;
+        display: block;
+        width: 100%;
+        box-sizing: border-box;
+      }
+        address > a {
+          color: #FFF;
+          font: 28px/24px Quattrocento;
+          text-decoration: none;
+          text-shadow: 1px 1px #000;
+          margin: 0 10px;
+        }
+        address > span {
+          position: absolute;
+          left: -999em;
+        }
+        .icon {
+          display: inline-block;
+          width: 24px;
+          height: 24px;
+          color: transparent;
+          -webkit-user-select: none;
+          overflow: hidden;
+          text-shadow: none;
+          border-radius: 3px;
+          float: right;
+          margin: 0 10px 0 0;
+        }
+          .icon:hover, .icon:focus {
+            box-shadow: 0 0 6px #FFF;
+          }
+        .email {
+          background: url(email.png);
+        }
+        .twitter {
+          background: url(twitter-2.png);
+        }
+          .twitter:hover, .twitter:focus {
+            box-shadow: 0 0 6px #3CF;
+          }
+        .plus {
+          background: url(google-plus-black.png);
+        }
+          .plus:hover, .plus:focus {
+            box-shadow: 0 0 6px #DD4B39;
+          }
+    </style>
+    <address class="vcard">
+      <a href="/" class="fn" rel="home">Mike West</a>
+      <span>
+        works and plays on the internet. Currently working as a Developer
+        Advocate on Google's Chrome team in Munich, he helps develop websites
+        and applications that (on good days) delight and inform. Drop me an
+        email at
+      </span>
+      <a href="mailto:mike@mikewest.org"
+         title="Drop me an email."
+         class="email icon">mike@mikewest.org</a>
+      <span>
+        follow me on
+      </span>
+      <a href="http://twitter.com/mikewest"
+        rel="me"
+        title="Follow me on Twitter"
+        class="twitter icon">Twitter</a>
+      <span>
+        or circle me on
+      </span>
+      <a href="https://plus.google.com/104437754419996754779/"
+         rel="me"
+         title="Circle me on Google+"
+         class="plus icon">Google+</a>
+    </address>
+  </body>
+</html>
